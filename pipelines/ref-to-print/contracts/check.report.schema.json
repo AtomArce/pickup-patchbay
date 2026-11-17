@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "check.report/1",
+  "title": "Check report (written by every check and by r2p gate)",
+  "type": "object",
+  "required": ["schema", "check", "passed", "results"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "check.report/1"},
+    "check": {"enum": ["mesh", "fit", "mate", "slice", "gate"]},
+    "job": {"type": ["string", "null"]},
+    "passed": {"type": "boolean", "description": "True only when every result passed"},
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["part", "rule", "passed"],
+        "additionalProperties": false,
+        "properties": {
+          "part": {"type": "string", "description": "Part name, mate name, or plate file"},
+          "rule": {"type": "string", "description": "Short rule id, e.g. watertight, fits_build_volume, min_gap"},
+          "passed": {"type": "boolean"},
+          "value": {"type": ["number", "null"]},
+          "limit": {"type": ["number", "null"]},
+          "unit": {"type": "string"},
+          "note": {"type": "string"}
+        }
+      }
+    }
+  }
+}

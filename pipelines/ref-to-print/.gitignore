@@ -1,0 +1,25 @@
+# Environments and secrets
+.venv/
+.env
+.env.*
+__pycache__/
+.pytest_cache/
+
+# Reference images (copyright, size) and model weights
+jobs/*/refs/*
+!jobs/*/refs/.gitkeep
+*.safetensors
+*.ckpt
+*.gguf
+*.pt
+
+# Generated geometry and slicer output; manifests and reports stay tracked
+jobs/*/form/
+jobs/*/parts/
+jobs/*/sliced/
+jobs/*/views/
+*.ma
+*.mb
+*.f3d
+*.f3z
+*.gcode

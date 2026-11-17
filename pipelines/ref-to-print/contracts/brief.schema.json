@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "brief/1",
+  "title": "Job brief (stage S0 output)",
+  "type": "object",
+  "required": ["schema", "job", "units", "printer", "target", "parts", "constraints"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "brief/1"},
+    "job": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "title": {"type": "string"},
+    "units": {"const": "mm"},
+    "printer": {"type": "string", "description": "File name under printer/, e.g. ender3-v3se.json"},
+    "target": {
+      "type": "object",
+      "required": ["bbox_mm"],
+      "additionalProperties": false,
+      "properties": {
+        "bbox_mm": {"$ref": "#/$defs/vec3", "description": "Overall assembled size, X Y Z"},
+        "tolerance_pct": {"type": "number", "minimum": 0, "default": 2}
+      }
+    },
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_]*$"},
+          "count": {"type": "integer", "minimum": 1, "default": 1},
+          "colour": {"type": "string"},
+          "material": {"type": "string", "default": "PLA"},
+          "shape": {"enum": ["analytic", "organic"], "description": "analytic parts are rebuilt as native solids; organic parts are converted from mesh"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "motion": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "parts"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string"},
+          "type": {"enum": ["fixed", "hinge", "link"]},
+          "parts": {"type": "array", "items": {"type": "string"}, "minItems": 2},
+          "range_deg": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "parts"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "parts": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "refs": {"type": "array", "items": {"type": "string"}},
+    "constraints": {
+      "type": "object",
+      "required": ["min_wall_mm", "clearance_mm", "max_triangles_per_part"],
+      "additionalProperties": false,
+      "properties": {
+        "min_wall_mm": {"type": "number", "exclusiveMinimum": 0},
+        "clearance_mm": {"type": "number", "exclusiveMinimum": 0},
+        "max_triangles_per_part": {"type": "integer", "minimum": 1}
+      }
+    },
+    "assumptions": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "vec3": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3}
+  }
+}

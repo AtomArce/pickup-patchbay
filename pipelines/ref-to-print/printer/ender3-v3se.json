@@ -1,0 +1,22 @@
+{
+  "name": "Creality Ender 3 V3 SE (printer A)",
+  "firmware": "Klipper",
+  "build_volume_mm": [220, 220, 250],
+  "bed_margin_mm": 5,
+  "nozzle_mm": 0.4,
+  "materials": ["PLA"],
+  "defaults": {
+    "min_wall_mm": 1.2,
+    "clearance_mm": 0.3,
+    "layer_height_mm": 0.2
+  },
+  "evidence": {
+    "build_volume_mm": "verified 2026-11-16 from metaware/fixtures/Crown_DAISY.trimmed.gcode (bed_shape 220x220, max_print_height 250)",
+    "nozzle_mm": "verified 2026-11-16 from metaware fixtures (nozzle_diameter = 0.4)",
+    "materials": "verified 2026-11-16 from metaware fixtures and seed data (PLA only)",
+    "bed_margin_mm": "unverified: a working guess for brim and clips",
+    "min_wall_mm": "unverified: three 0.4 mm perimeters; replace after a test print",
+    "clearance_mm": "unverified: placeholder until the clearance coupon is printed and measured",
+    "layer_height_mm": "unverified as a default; the Daisy crown fixture used 0.16"
+  }
+}

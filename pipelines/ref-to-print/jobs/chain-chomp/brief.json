@@ -1,0 +1,41 @@
+{
+  "schema": "brief/1",
+  "job": "chain-chomp",
+  "title": "Functioning Chain Chomp with all the pieces",
+  "units": "mm",
+  "printer": "ender3-v3se.json",
+  "target": {"bbox_mm": [100, 100, 100], "tolerance_pct": 2},
+  "parts": [
+    {"name": "body_upper", "colour": "black", "shape": "analytic", "notes": "Upper half of the head sphere"},
+    {"name": "jaw_lower", "colour": "black", "shape": "analytic", "notes": "Lower jaw, swings on the hinge"},
+    {"name": "hinge_pin", "colour": "black", "shape": "analytic"},
+    {"name": "teeth_upper", "colour": "white", "shape": "organic", "notes": "Pressed or glued into the upper body"},
+    {"name": "teeth_lower", "colour": "white", "shape": "organic", "notes": "Pressed or glued into the jaw"},
+    {"name": "eye", "count": 2, "colour": "white", "shape": "organic"},
+    {"name": "chain_link", "count": 6, "colour": "grey", "shape": "analytic", "notes": "Count is a guess"},
+    {"name": "stake", "colour": "brown", "shape": "analytic"}
+  ],
+  "motion": [
+    {"name": "jaw_hinge", "type": "hinge", "parts": ["body_upper", "jaw_lower"], "range_deg": [0, 45], "notes": "Range is a guess"},
+    {"name": "chain", "type": "link", "parts": ["chain_link", "chain_link"]},
+    {"name": "chain_to_body", "type": "link", "parts": ["body_upper", "chain_link"]},
+    {"name": "chain_to_stake", "type": "link", "parts": ["stake", "chain_link"]},
+    {"name": "teeth_upper_seat", "type": "fixed", "parts": ["body_upper", "teeth_upper"]},
+    {"name": "teeth_lower_seat", "type": "fixed", "parts": ["jaw_lower", "teeth_lower"]}
+  ],
+  "milestones": [
+    {"id": "M1", "title": "Chain: two links", "parts": ["chain_link"]},
+    {"id": "M2", "title": "Head", "parts": ["body_upper", "jaw_lower", "hinge_pin", "teeth_upper", "teeth_lower", "eye"]},
+    {"id": "M3", "title": "Whole", "parts": ["body_upper", "jaw_lower", "hinge_pin", "teeth_upper", "teeth_lower", "eye", "chain_link", "stake"]}
+  ],
+  "refs": [],
+  "constraints": {"min_wall_mm": 1.2, "clearance_mm": 0.3, "max_triangles_per_part": 20000},
+  "assumptions": [
+    "DRAFT: written by the agent on 2026-11-16, not yet reviewed by Atom",
+    "Body is about 100 mm across (unverified)",
+    "Functioning means the jaw opens on a hinge and the chain links move freely (unverified)",
+    "Single-colour PLA, so colour comes from separate parts",
+    "Link count, jaw range and the triangle cap are guesses",
+    "No reference images have been supplied yet; refs is empty"
+  ]
+}

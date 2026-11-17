@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "slice.report/1",
+  "title": "Slice report (stage S3 output)",
+  "type": "object",
+  "required": ["schema", "slicer", "passed", "plates"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "slice.report/1"},
+    "job": {"type": ["string", "null"]},
+    "slicer": {"type": "string", "description": "e.g. orcaslicer, prusaslicer"},
+    "slicer_version": {"type": ["string", "null"]},
+    "profile": {"type": ["string", "null"]},
+    "passed": {"type": "boolean"},
+    "plates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["input", "passed"],
+        "additionalProperties": false,
+        "properties": {
+          "input": {"type": "string"},
+          "output": {"type": ["string", "null"]},
+          "passed": {"type": "boolean"},
+          "time_s": {"type": ["number", "null"]},
+          "filament_g": {"type": ["number", "null"]},
+          "errors": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

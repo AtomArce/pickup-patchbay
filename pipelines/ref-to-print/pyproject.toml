@@ -1,0 +1,23 @@
+[project]
+name = "ref-to-print"
+version = "0.0.1"
+description = "Reference images to printable parts: contracts, checks and the r2p driver"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "scipy",
+    "trimesh",
+    "manifold3d",
+    "rtree",
+    "jsonschema",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.uv]
+package = false

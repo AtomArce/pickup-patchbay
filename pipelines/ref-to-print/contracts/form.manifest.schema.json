@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "form.manifest/1",
+  "title": "Form manifest (stage S1 output, Maya)",
+  "type": "object",
+  "required": ["schema", "job", "units", "up_axis", "parts", "locators"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "form.manifest/1"},
+    "job": {"type": "string"},
+    "units": {"const": "mm"},
+    "up_axis": {"enum": ["Y", "Z"]},
+    "source_scene": {"type": "string", "description": "Path of the .ma scene, relative to the job folder"},
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "file", "bbox_mm", "triangles"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string"},
+          "file": {"type": "string", "description": "OBJ path relative to the job folder, e.g. form/link.obj"},
+          "bbox_mm": {"$ref": "#/$defs/bbox"},
+          "triangles": {"type": "integer", "minimum": 1},
+          "analytic": {
+            "type": "object",
+            "description": "Present when the part is a simple shape Fusion should rebuild natively",
+            "required": ["kind"],
+            "properties": {
+              "kind": {"enum": ["sphere", "torus", "cylinder", "box", "cone"]},
+              "centre": {"$ref": "#/$defs/vec3"},
+              "axis": {"$ref": "#/$defs/vec3"},
+              "dims_mm": {"type": "object", "additionalProperties": {"type": "number"}}
+            }
+          }
+        }
+      }
+    },
+    "locators": {
+      "type": "array",
+      "description": "Joint intent. Functional geometry is built in S2 from these, never modelled as polygons",
+      "items": {
+        "type": "object",
+        "required": ["name", "kind", "origin"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string"},
+          "kind": {"enum": ["hinge_axis", "split_plane", "anchor"]},
+          "origin": {"$ref": "#/$defs/vec3"},
+          "direction": {"$ref": "#/$defs/vec3", "description": "Axis direction for hinge_axis, plane normal for split_plane"},
+          "parts": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "views": {"type": "array", "items": {"type": "string"}, "description": "Turntable PNG paths"}
+  },
+  "$defs": {
+    "vec3": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3},
+    "bbox": {
+      "type": "object",
+      "required": ["min", "max"],
+      "additionalProperties": false,
+      "properties": {"min": {"$ref": "#/$defs/vec3"}, "max": {"$ref": "#/$defs/vec3"}}
+    }
+  }
+}

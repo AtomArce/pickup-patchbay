@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "parts.manifest/1",
+  "title": "Parts manifest (stage S2 output, print prep)",
+  "type": "object",
+  "required": ["schema", "job", "units", "up_axis", "clearance_mm", "parts", "mates"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "parts.manifest/1"},
+    "job": {"type": "string"},
+    "units": {"const": "mm"},
+    "up_axis": {"enum": ["Y", "Z"]},
+    "clearance_mm": {"type": "number", "exclusiveMinimum": 0},
+    "min_wall_mm": {"type": "number", "exclusiveMinimum": 0},
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "stl"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string"},
+          "stl": {"type": "string", "description": "Path relative to the job folder. The mesh is in ASSEMBLED position, not print orientation"},
+          "step": {"type": "string"},
+          "source": {"enum": ["rebuilt", "converted", "mesh"]},
+          "colour": {"type": "string"},
+          "bbox_mm": {"$ref": "#/$defs/bbox"},
+          "volume_mm3": {"type": "number", "minimum": 0},
+          "print_up": {"$ref": "#/$defs/vec3", "description": "Direction, in assembled coordinates, that points up on the print bed"}
+        }
+      }
+    },
+    "mates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "a", "b"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string"},
+          "type": {"enum": ["fixed", "hinge", "link"]},
+          "a": {"type": "string", "description": "Part that stays still"},
+          "b": {"type": "string", "description": "Part that moves (for hinge)"},
+          "clearance_mm": {"type": "number", "minimum": 0, "description": "Required smallest gap between a and b. 0 for a glued fixed mate"},
+          "axis_origin": {"$ref": "#/$defs/vec3"},
+          "axis_direction": {"$ref": "#/$defs/vec3"},
+          "range_deg": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "vec3": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3},
+    "bbox": {
+      "type": "object",
+      "required": ["min", "max"],
+      "additionalProperties": false,
+      "properties": {"min": {"$ref": "#/$defs/vec3"}, "max": {"$ref": "#/$defs/vec3"}}
+    }
+  }
+}

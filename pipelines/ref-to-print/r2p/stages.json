@@ -1,0 +1,5 @@
+{
+  "S1": {"cmd": null, "background": false, "todo": "The Maya modelling script is not written yet; a modelling agent does S1 by hand, then run mark."},
+  "S2": {"cmd": null, "background": false, "todo": "The Fusion print-prep script is not written yet; do S2 by hand, then run: python -m r2p mark JOB S2 done"},
+  "S3": {"cmd": ["{python}", "-m", "slicer.slice_check", "--job-dir", "{job_dir}", "--job", "{job}"], "background": false}
+}

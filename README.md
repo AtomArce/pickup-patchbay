@@ -10,6 +10,9 @@ Pickup Patchbay is an independent, local-first project. It connects language mod
 - **Local compute** (working): models run on modest, local hardware. Rented GPUs are used only for short, approved bursts.
 - **Self-improving agents** (planned): agents that review their own runs and patch their own skills and prompts, checked against held-out tasks.
 
+## Pipelines
+- [ref-to-print](pipelines/ref-to-print/): reference images to 3D-printable parts (skeleton; checks and driver only so far).
+
 ## How it is built
 In the open where possible, with every tool, machine and budget choice written down along with the evidence for it. Claims are marked verified (it was run) or unverified.
 
