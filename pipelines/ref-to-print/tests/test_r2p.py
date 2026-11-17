@@ -143,7 +143,11 @@ def test_check_error_counts_as_failure(env):
     assert code == 1 and "boom" in out and state(env)["steps"]["G1"]["attempts"] == 1
 
 
-def test_run_null_cmd_leaves_state(env):
+def test_run_null_cmd_leaves_state(env, tmp_path, monkeypatch):
+    # A stage with no command yet (as S2 was before the code route existed).
+    stages = tmp_path / "stages.json"
+    stages.write_text(json.dumps({"S2": {"cmd": None, "todo": "The script is not written yet; do S2 by hand."}}))
+    monkeypatch.setattr(cli, "STAGES", stages)
     env("init", "demo")
     advance(env, "S1")
     env("gate", "demo", "G1")

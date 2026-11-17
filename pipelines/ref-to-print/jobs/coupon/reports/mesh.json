@@ -1,0 +1,80 @@
+{
+  "schema": "check.report/1",
+  "check": "mesh",
+  "job": "coupon",
+  "passed": true,
+  "results": [
+    {
+      "part": "coupon_plate",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "coupon_plate",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "coupon_plate",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 8851.124361914071,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "coupon_plate",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 1.3356498970543134,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "coupon_peg",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "coupon_peg",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "coupon_peg",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 994.7551544744638,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "coupon_peg",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 1.9999,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    }
+  ]
+}

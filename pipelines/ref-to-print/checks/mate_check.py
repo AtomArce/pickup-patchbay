@@ -9,8 +9,8 @@ Accuracy limits (all lengths mm):
   sampled search can miss a narrower pinch point by up to about half the sample
   spacing (a fraction of a mm on large parts), so it may read slightly high.
 - The hinge sweep tests N+1 discrete angles; a collision that exists only
-  between two samples is not seen. Parts joined to b by a fixed mate (which
-  would move with it) are not swept; they are skipped.
+  between two samples is not seen. Parts joined to b by fixed mates (transitively)
+  move with b and are tested too; non-watertight parts are skipped.
 """
 
 from __future__ import annotations
@@ -40,9 +40,11 @@ def overlap_volume(a: trimesh.Trimesh, b: trimesh.Trimesh) -> float:
         common = trimesh.boolean.intersection([a, b], engine="manifold")
     except ValueError:
         return 0.0  # manifold reports an empty result as an error on some versions
-    if common is None or len(common.faces) == 0:
+    if common is None or len(common.faces) == 0 or len(common.vertices) == 0:
         return 0.0
-    return float(abs(common.volume))
+    with np.errstate(all="ignore"):
+        vol = float(abs(common.volume))
+    return vol if np.isfinite(vol) else 0.0
 
 
 def _one_way_gap(src: trimesh.Trimesh, dst: trimesh.Trimesh, rng: np.random.Generator) -> float:
@@ -63,6 +65,29 @@ def min_gap(a: trimesh.Trimesh, b: trimesh.Trimesh) -> float:
     return min(_one_way_gap(a, b, rng), _one_way_gap(b, a, rng))
 
 
+def sweep_group(
+    moving: dict[str, trimesh.Trimesh],
+    targets: dict[str, trimesh.Trimesh],
+    origin: list[float],
+    direction: list[float],
+    range_deg: list[float],
+    steps: int,
+) -> tuple[float, float, str, str]:
+    """Rotate all moving parts together; return (worst mm3, worst angle deg, moving part, target)."""
+    worst, worst_angle, mover, hit = 0.0, float(range_deg[0]), "", ""
+    for angle in np.linspace(range_deg[0], range_deg[1], steps + 1):
+        rot = trimesh.transformations.rotation_matrix(np.radians(angle), direction, origin)
+        for mname, mesh in moving.items():
+            moved = mesh.copy()
+            moved.apply_transform(rot)
+            for tname, target in targets.items():
+                # overlap_volume does the cheap bounding-box test before any boolean
+                vol = overlap_volume(target, moved)
+                if vol > worst:
+                    worst, worst_angle, mover, hit = vol, float(angle), mname, tname
+    return worst, worst_angle, mover, hit
+
+
 def sweep_hinge(
     a: trimesh.Trimesh,
     b: trimesh.Trimesh,
@@ -72,19 +97,35 @@ def sweep_hinge(
     steps: int,
     others: dict[str, trimesh.Trimesh] | None = None,
 ) -> tuple[float, float, str]:
-    """Swing b about the axis; return (worst volume mm3, worst angle deg, what it hit)."""
-    others = others or {}
-    worst, worst_angle, hit = 0.0, float(range_deg[0]), ""
-    for angle in np.linspace(range_deg[0], range_deg[1], steps + 1):
-        moved = b.copy()
-        moved.apply_transform(
-            trimesh.transformations.rotation_matrix(np.radians(angle), direction, origin)
+    """Swing b about the axis; return (worst volume mm3, worst angle deg, what it hit ('' = a))."""
+    vol, angle, _, hit = sweep_group({"b": b}, {"": a, **(others or {})}, origin, direction, range_deg, steps)
+    return vol, angle, hit
+
+
+def rigid_group(root: str, mates: list[dict[str, Any]]) -> set[str]:
+    """root plus every part reachable from it through fixed mates (transitively)."""
+    group, todo = {root}, [root]
+    while todo:
+        cur = todo.pop()
+        for m in mates:
+            if m["type"] == "fixed" and cur in (m["a"], m["b"]):
+                other = m["b"] if m["a"] == cur else m["a"]
+                if other not in group:
+                    group.add(other)
+                    todo.append(other)
+    return group
+
+
+def hinge_groups(mate: dict[str, Any], mates: list[dict[str, Any]]) -> tuple[set[str], set[str]]:
+    """(moving group, still group) for a hinge mate; ValueError if they share a part."""
+    moving, still = rigid_group(mate["b"], mates), rigid_group(mate["a"], mates)
+    both = moving & still
+    if both:
+        raise ValueError(
+            f"mate {mate['name']}: {', '.join(sorted(both))} is rigidly fixed to both "
+            f"{mate['a']} and {mate['b']} (fixed mates join the two sides of the hinge)"
         )
-        for name, target in {"": a, **others}.items():
-            vol = overlap_volume(target, moved)
-            if vol > worst:
-                worst, worst_angle, hit = vol, float(angle), name
-    return worst, worst_angle, hit
+    return moving, still
 
 
 def _load_mesh(path: Path) -> trimesh.Trimesh:
@@ -97,7 +138,7 @@ def check_mate(
     meshes: dict[str, trimesh.Trimesh],
     default_clearance: float,
     steps: int,
-    fixed_to_b: set[str],
+    moving: set[str] | None = None,
 ) -> list[dict[str, Any]]:
     name, a, b = mate["name"], meshes[mate["a"]], meshes[mate["b"]]
     if not (a.is_watertight and b.is_watertight):
@@ -107,9 +148,8 @@ def check_mate(
     if required > 0:
         out.append(gap_result(name, a, b, required))
     if mate["type"] == "hinge":
-        skip = {mate["a"], mate["b"]} | fixed_to_b
-        others = {n: m for n, m in meshes.items() if n not in skip and m.is_watertight}
-        out.append(sweep_result(name, mate, a, b, others, steps, sorted(fixed_to_b)))
+        group = moving or {mate["b"]}
+        out.append(sweep_result(name, mate, meshes, group, steps))
     return out
 
 
@@ -128,19 +168,20 @@ def gap_result(name: str, a: trimesh.Trimesh, b: trimesh.Trimesh, required: floa
 def sweep_result(
     name: str,
     mate: dict[str, Any],
-    a: trimesh.Trimesh,
-    b: trimesh.Trimesh,
-    others: dict[str, trimesh.Trimesh],
+    meshes: dict[str, trimesh.Trimesh],
+    group: set[str],
     steps: int,
-    skipped: list[str],
 ) -> dict[str, Any]:
-    vol, angle, hit = sweep_hinge(
-        a, b, mate["axis_origin"], mate["axis_direction"], mate["range_deg"], steps, others
+    movers = {n: meshes[n] for n in sorted(group) if meshes[n].is_watertight}
+    targets = {n: m for n, m in meshes.items() if n not in group and m.is_watertight}
+    skipped = sorted(n for n, m in meshes.items() if not m.is_watertight and n != mate["b"])
+    vol, angle, mover, hit = sweep_group(
+        movers, targets, mate["axis_origin"], mate["axis_direction"], mate["range_deg"], steps
     )
-    note = f"{steps + 1} poses; worst at {angle:.1f} deg" + (f" against {hit or mate['a']}" if vol > 0 else "")
-    note += f"; checked against {len(others)} other part(s)"
+    note = f"{steps + 1} poses; worst at {angle:.1f} deg" + (f" ({mover} against {hit})" if vol > 0 else "")
+    note += f"; moving group: {', '.join(sorted(group))}; checked against {len(targets)} other part(s)"
     if skipped:
-        note += f"; skipped parts fixed to b (not moved with it): {', '.join(skipped)}"
+        note += f"; skipped non-watertight: {', '.join(skipped)}"
     return result(name, "sweep_clear", vol <= MAX_OVERLAP_MM3, vol, MAX_OVERLAP_MM3, "mm3", note)
 
 
@@ -155,12 +196,8 @@ def run(job_dir: Path, steps: int, job: str | None) -> dict[str, Any]:
     meshes = {n: _load_mesh(job_dir / p["stl"]) for n, p in parts.items()}
     results: list[dict[str, Any]] = []
     for mate in manifest["mates"]:
-        fixed_to_b = {
-            m["a"] if m["b"] == mate["b"] else m["b"]
-            for m in manifest["mates"]
-            if m["type"] == "fixed" and mate["b"] in (m["a"], m["b"])
-        }
-        results += check_mate(mate, meshes, manifest["clearance_mm"], steps, fixed_to_b)
+        moving = hinge_groups(mate, manifest["mates"])[0] if mate["type"] == "hinge" else None
+        results += check_mate(mate, meshes, manifest["clearance_mm"], steps, moving)
     return make_report("mate", results, job or manifest["job"])
 
 

@@ -1,0 +1,44 @@
+{
+  "schema": "check.report/1",
+  "check": "fit",
+  "job": null,
+  "passed": true,
+  "results": [
+    {
+      "part": "coupon_plate",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -104.8499984741211,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 105.15 x 18.00 x 6.00 mm with print_up [0.0, 0.0, 1.0]"
+    },
+    {
+      "part": "coupon_plate",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 1.5258789005656581e-06,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[0.0, -9.0, 0.0], [105.15, 9.0, 6.0]] vs manifest [[0.0, -9.0, 0.0], [105.15, 9.0, 6.0]]"
+    },
+    {
+      "part": "coupon_peg",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -196.0,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 14.00 x 14.00 x 14.00 mm with print_up [0.0, 0.0, 1.0]"
+    },
+    {
+      "part": "coupon_peg",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 7.629394502828291e-07,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[45.575, -31.0, 0.0], [59.575, -17.0, 14.0]] vs manifest [[45.575, -31.0, 0.0], [59.575, -17.0, 14.0]]"
+    }
+  ]
+}

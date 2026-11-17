@@ -1,5 +1,30 @@
 {
-  "S1": {"cmd": null, "background": false, "todo": "The Maya modelling script is not written yet; a modelling agent does S1 by hand, then run mark."},
-  "S2": {"cmd": null, "background": false, "todo": "The Fusion print-prep script is not written yet; do S2 by hand, then run: python -m r2p mark JOB S2 done"},
-  "S3": {"cmd": ["{python}", "-m", "slicer.slice_check", "--job-dir", "{job_dir}", "--job", "{job}"], "background": false}
+  "S1": {
+    "cmd": null,
+    "background": false,
+    "todo": "The Maya modelling script is not written yet. For a job made only of code-built parts, run: python -m gen.build --job-dir jobs/JOB --stage form, then: python -m r2p mark JOB S1 done"
+  },
+  "S2": {
+    "cmd": [
+      "{python}",
+      "-m",
+      "gen.build",
+      "--job-dir",
+      "{job_dir}"
+    ],
+    "background": false,
+    "note": "Code route: builds every part the brief names that a generator covers. The Fusion route is not written yet; when it is, it replaces this command."
+  },
+  "S3": {
+    "cmd": [
+      "{python}",
+      "-m",
+      "slicer.slice_check",
+      "--job-dir",
+      "{job_dir}",
+      "--job",
+      "{job}"
+    ],
+    "background": false
+  }
 }

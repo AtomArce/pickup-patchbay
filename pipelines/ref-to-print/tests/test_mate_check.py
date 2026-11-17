@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import warnings
 from pathlib import Path
 from typing import Any
 
@@ -104,7 +105,9 @@ def test_fixed_boxes_sharing_a_face_pass(tmp_path, save_mesh):
     left = trimesh.creation.box(bounds=[(0, 0, 0), (10, 10, 10)])
     right = trimesh.creation.box(bounds=[(10, 0, 0), (20, 10, 10)])
     mate = {"name": "glue", "type": "fixed", "a": "left", "b": "right", "clearance_mm": 0}
-    code, report = run(write_job(tmp_path, save_mesh, {"left": left, "right": right}, [mate]))
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", RuntimeWarning)  # the empty-boolean divide-by-zero must be gone
+        code, report = run(write_job(tmp_path, save_mesh, {"left": left, "right": right}, [mate]))
     assert code == 0
     assert "min_gap" not in by_rule(report)
     assert by_rule(report)["no_intersection"]["value"] < 0.01
@@ -125,3 +128,62 @@ def test_out_file_validates_against_schema(tmp_path, save_mesh, link_pair):
     _, report = run(link_job(tmp_path, save_mesh, link_pair), "--job", "demo")
     validate(report, "check.report")
     assert report["check"] == "mate" and report["job"] == "demo"
+
+
+def box(x0, y0, z0, x1, y1, z1):
+    return trimesh.creation.box(bounds=[(x0, y0, z0), (x1, y1, z1)])
+
+
+def hinge_mate(range_deg=(0, 90)):
+    return {"name": "hinge", "type": "hinge", "a": "wall", "b": "arm", "axis_origin": [0, 0, 0],
+            "axis_direction": [0, 0, 1], "range_deg": list(range_deg)}
+
+
+def glue(a, b):
+    return {"name": f"glue_{a}_{b}", "type": "fixed", "a": a, "b": b, "clearance_mm": 0}
+
+
+def block_job(tmp_path, save_mesh, block_x1):
+    # Hinge about z at the origin. wall is the slab y 30..40. arm is x 2..12, y -1..1: it sweeps a
+    # circle of radius <= 12.1, so it clears the wall at every angle. The block is fixed to the arm,
+    # x 22..block_x1, y -2..2. With block_x1 = 33 its radius reaches ~33 > 30, so as the arm turns
+    # towards +y the block enters the wall (about 72 deg and beyond; the sweep ends at 90). It is
+    # clear at 0 deg (y <= 2). With block_x1 = 26 the block radius stays ~26 < 30: clear throughout.
+    meshes = {"wall": box(-40, 30, 0, 40, 40, 10), "arm": box(2, -1, 0, 12, 1, 10),
+              "blk": box(22, -2, 0, block_x1, 2, 10)}
+    return write_job(tmp_path, save_mesh, meshes, [hinge_mate(), glue("arm", "blk")])
+
+
+def test_block_fixed_to_b_swings_into_a_fails(tmp_path, save_mesh):
+    code, report = run(block_job(tmp_path, save_mesh, 33))
+    sweep = by_rule(report)["sweep_clear"]
+    assert code == 1 and not sweep["passed"]
+    assert "blk against wall" in sweep["note"]
+    assert "skipped" not in sweep["note"]
+
+
+def test_block_fixed_to_b_that_clears_passes(tmp_path, save_mesh):
+    code, report = run(block_job(tmp_path, save_mesh, 26))
+    sweep = by_rule(report)["sweep_clear"]
+    assert code == 0 and sweep["passed"]
+    assert "moving group: arm, blk" in sweep["note"]
+
+
+def test_b_swings_into_part_fixed_to_a_fails(tmp_path, save_mesh):
+    # post is glued to the wall (still group), x -2..2, y 6..10. The arm lies along +x at 0 deg
+    # (clear of the post) and along +y at 90 deg (x -1..1, y 2..12), where it cuts into the post.
+    meshes = {"wall": box(-40, 30, 0, 40, 40, 10), "arm": box(2, -1, 0, 12, 1, 10),
+              "post": box(-2, 6, 0, 2, 10, 10)}
+    code, report = run(write_job(tmp_path, save_mesh, meshes, [hinge_mate(), glue("wall", "post")]))
+    sweep = by_rule(report)["sweep_clear"]
+    assert code == 1 and not sweep["passed"]
+    assert "arm against post" in sweep["note"]
+
+
+def test_part_fixed_to_both_sides_gives_exit_2(tmp_path, save_mesh, capsys):
+    meshes = {"wall": box(-40, 30, 0, 40, 40, 10), "arm": box(2, -1, 0, 12, 1, 10),
+              "c": box(20, 0, 0, 24, 4, 10)}
+    folder = write_job(tmp_path, save_mesh, meshes, [hinge_mate(), glue("wall", "c"), glue("arm", "c")])
+    assert mate_check.main(["--job-dir", str(folder)]) == 2
+    err = capsys.readouterr().err
+    assert "hinge" in err and "c" in err

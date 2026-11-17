@@ -1,0 +1,26 @@
+{
+  "schema": "check.report/1",
+  "check": "mate",
+  "job": "chain-m1",
+  "passed": true,
+  "results": [
+    {
+      "part": "chain_1_2",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_1_2",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 1.9999997971840924,
+      "limit": 0.4,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    }
+  ]
+}

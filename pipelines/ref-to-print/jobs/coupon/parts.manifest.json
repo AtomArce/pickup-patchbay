@@ -1,0 +1,56 @@
+{
+  "schema": "parts.manifest/1",
+  "job": "coupon",
+  "units": "mm",
+  "up_axis": "Z",
+  "parts": [
+    {
+      "name": "coupon_plate",
+      "stl": "parts/coupon_plate.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          0.0,
+          -9.0,
+          0.0
+        ],
+        "max": [
+          105.15,
+          9.0,
+          6.0
+        ]
+      },
+      "volume_mm3": 8851.124,
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "coupon_peg",
+      "stl": "parts/coupon_peg.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          45.575,
+          -31.0,
+          0.0
+        ],
+        "max": [
+          59.575,
+          -17.0,
+          14.0
+        ]
+      },
+      "volume_mm3": 994.755,
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "mates": [],
+  "clearance_mm": 0.1
+}

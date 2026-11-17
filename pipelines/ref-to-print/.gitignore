@@ -23,3 +23,6 @@ jobs/*/views/
 *.f3d
 *.f3z
 *.gcode
+
+# Locally downloaded tools (slicer binaries)
+.tools/

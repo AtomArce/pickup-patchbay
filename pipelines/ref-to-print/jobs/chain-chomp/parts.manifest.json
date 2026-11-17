@@ -1,0 +1,442 @@
+{
+  "schema": "parts.manifest/1",
+  "job": "chain-chomp",
+  "units": "mm",
+  "up_axis": "Z",
+  "parts": [
+    {
+      "name": "body_upper",
+      "stl": "parts/body_upper.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -58.0,
+          -49.9926,
+          -5.0
+        ],
+        "max": [
+          49.9945,
+          49.9926,
+          50.0
+        ]
+      },
+      "volume_mm3": 36766.051,
+      "colour": "black",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "jaw_lower",
+      "stl": "parts/jaw_lower.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -58.0,
+          -49.9926,
+          -50.0
+        ],
+        "max": [
+          49.9945,
+          49.9926,
+          5.0
+        ]
+      },
+      "volume_mm3": 36002.496,
+      "colour": "black",
+      "print_up": [
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "name": "hinge_pin",
+      "stl": "parts/hinge_pin.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -55.0,
+          -12.32,
+          -2.0
+        ],
+        "max": [
+          -51.0,
+          12.32,
+          2.0
+        ]
+      },
+      "volume_mm3": 309.138,
+      "colour": "black",
+      "print_up": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "name": "teeth_upper",
+      "stl": "parts/teeth_upper.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          22.4177,
+          -40.4065,
+          -9.35
+        ],
+        "max": [
+          46.7075,
+          40.4065,
+          8.65
+        ]
+      },
+      "volume_mm3": 2422.845,
+      "colour": "white",
+      "print_up": [
+        0.0,
+        0.0,
+        -1.0
+      ]
+    },
+    {
+      "name": "teeth_lower",
+      "stl": "parts/teeth_lower.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          22.5758,
+          -40.4065,
+          -8.65
+        ],
+        "max": [
+          46.7075,
+          40.4065,
+          9.35
+        ]
+      },
+      "volume_mm3": 2241.811,
+      "colour": "white",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "eye_left",
+      "stl": "parts/eye_left.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          26.1725,
+          10.8147,
+          19.0443
+        ],
+        "max": [
+          41.1104,
+          27.273,
+          34.9824
+        ]
+      },
+      "volume_mm3": 971.801,
+      "colour": "white",
+      "print_up": [
+        0.7094064799162225,
+        0.40957602214449584,
+        0.573576436351046
+      ]
+    },
+    {
+      "name": "eye_right",
+      "stl": "parts/eye_right.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          26.1725,
+          -27.273,
+          19.0443
+        ],
+        "max": [
+          41.1104,
+          -10.8147,
+          34.9824
+        ]
+      },
+      "volume_mm3": 971.801,
+      "colour": "white",
+      "print_up": [
+        0.7094064799162225,
+        -0.40957602214449584,
+        0.573576436351046
+      ]
+    },
+    {
+      "name": "chain_link_1",
+      "stl": "parts/chain_link_1.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -196.0156,
+          -7.419,
+          -50.0
+        ],
+        "max": [
+          -166.0156,
+          7.419,
+          -35.7621
+        ]
+      },
+      "volume_mm3": 1252.383,
+      "colour": "grey",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "chain_link_2",
+      "stl": "parts/chain_link_2.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -180.8125,
+          -7.419,
+          -50.0
+        ],
+        "max": [
+          -150.8125,
+          7.419,
+          -35.7621
+        ]
+      },
+      "volume_mm3": 1252.383,
+      "colour": "grey",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "chain_link_3",
+      "stl": "parts/chain_link_3.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -165.6094,
+          -7.419,
+          -50.0
+        ],
+        "max": [
+          -135.6094,
+          7.419,
+          -35.7621
+        ]
+      },
+      "volume_mm3": 1252.383,
+      "colour": "grey",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "chain_link_4",
+      "stl": "parts/chain_link_4.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -150.4062,
+          -7.419,
+          -50.0
+        ],
+        "max": [
+          -120.4062,
+          7.419,
+          -35.7621
+        ]
+      },
+      "volume_mm3": 1252.383,
+      "colour": "grey",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "chain_link_5",
+      "stl": "parts/chain_link_5.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -135.2031,
+          -7.419,
+          -50.0
+        ],
+        "max": [
+          -105.2031,
+          7.419,
+          -35.7621
+        ]
+      },
+      "volume_mm3": 1252.382,
+      "colour": "grey",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "chain_link_6",
+      "stl": "parts/chain_link_6.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -120.0,
+          -7.419,
+          -50.0
+        ],
+        "max": [
+          -90.0,
+          7.419,
+          -35.7621
+        ]
+      },
+      "volume_mm3": 1252.382,
+      "colour": "grey",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "stake",
+      "stl": "parts/stake.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -197.0156,
+          15.5,
+          -50.0
+        ],
+        "max": [
+          -136.0156,
+          34.5,
+          -37.0
+        ]
+      },
+      "volume_mm3": 5932.43,
+      "colour": "brown",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "mates": [
+    {
+      "name": "jaw_hinge",
+      "type": "hinge",
+      "a": "body_upper",
+      "b": "jaw_lower",
+      "clearance_mm": 0.3,
+      "axis_origin": [
+        -53.0,
+        0.0,
+        0.0
+      ],
+      "axis_direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "range_deg": [
+        0.0,
+        45.0
+      ]
+    },
+    {
+      "name": "pin_in_upper",
+      "type": "fixed",
+      "a": "body_upper",
+      "b": "hinge_pin",
+      "clearance_mm": 0
+    },
+    {
+      "name": "pin_in_jaw",
+      "type": "link",
+      "a": "hinge_pin",
+      "b": "jaw_lower",
+      "clearance_mm": 0.24
+    },
+    {
+      "name": "teeth_upper_seat",
+      "type": "fixed",
+      "a": "body_upper",
+      "b": "teeth_upper"
+    },
+    {
+      "name": "teeth_lower_seat",
+      "type": "fixed",
+      "a": "jaw_lower",
+      "b": "teeth_lower"
+    },
+    {
+      "name": "eye_left_seat",
+      "type": "fixed",
+      "a": "body_upper",
+      "b": "eye_left"
+    },
+    {
+      "name": "eye_right_seat",
+      "type": "fixed",
+      "a": "body_upper",
+      "b": "eye_right"
+    },
+    {
+      "name": "chain_1_2",
+      "type": "link",
+      "a": "chain_link_1",
+      "b": "chain_link_2",
+      "clearance_mm": 0.4
+    },
+    {
+      "name": "chain_2_3",
+      "type": "link",
+      "a": "chain_link_2",
+      "b": "chain_link_3",
+      "clearance_mm": 0.4
+    },
+    {
+      "name": "chain_3_4",
+      "type": "link",
+      "a": "chain_link_3",
+      "b": "chain_link_4",
+      "clearance_mm": 0.4
+    },
+    {
+      "name": "chain_4_5",
+      "type": "link",
+      "a": "chain_link_4",
+      "b": "chain_link_5",
+      "clearance_mm": 0.4
+    },
+    {
+      "name": "chain_5_6",
+      "type": "link",
+      "a": "chain_link_5",
+      "b": "chain_link_6",
+      "clearance_mm": 0.4
+    }
+  ],
+  "clearance_mm": 0.3,
+  "min_wall_mm": 1.2
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "parts.manifest/1",
+  "job": "chain-m1",
+  "units": "mm",
+  "up_axis": "Z",
+  "parts": [
+    {
+      "name": "chain_link_1",
+      "stl": "parts/chain_link_1.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -15.0,
+          -7.419,
+          0.0
+        ],
+        "max": [
+          15.0,
+          7.419,
+          14.2379
+        ]
+      },
+      "volume_mm3": 1252.383,
+      "colour": "grey",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "chain_link_2",
+      "stl": "parts/chain_link_2.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          0.2031,
+          -7.419,
+          0.0
+        ],
+        "max": [
+          30.2031,
+          7.419,
+          14.2379
+        ]
+      },
+      "volume_mm3": 1252.383,
+      "colour": "grey",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "mates": [
+    {
+      "name": "chain_1_2",
+      "type": "link",
+      "a": "chain_link_1",
+      "b": "chain_link_2",
+      "clearance_mm": 0.4
+    }
+  ],
+  "clearance_mm": 0.3,
+  "min_wall_mm": 1.2
+}

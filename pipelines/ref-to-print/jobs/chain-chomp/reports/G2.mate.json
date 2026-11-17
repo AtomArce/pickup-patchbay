@@ -1,0 +1,188 @@
+{
+  "schema": "check.report/1",
+  "check": "mate",
+  "job": "chain-chomp",
+  "passed": true,
+  "results": [
+    {
+      "part": "jaw_hinge",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "jaw_hinge",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 0.3199999928474426,
+      "limit": 0.3,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    },
+    {
+      "part": "jaw_hinge",
+      "rule": "sweep_clear",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": "11 poses; worst at 0.0 deg; moving group: jaw_lower, teeth_lower; checked against 12 other part(s)"
+    },
+    {
+      "part": "pin_in_upper",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "pin_in_jaw",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "pin_in_jaw",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 0.299637360836454,
+      "limit": 0.24,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    },
+    {
+      "part": "teeth_upper_seat",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "teeth_lower_seat",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "eye_left_seat",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "eye_right_seat",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_1_2",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_1_2",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 2.000001145883472,
+      "limit": 0.4,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    },
+    {
+      "part": "chain_2_3",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_2_3",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 2.000001145883472,
+      "limit": 0.4,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    },
+    {
+      "part": "chain_3_4",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_3_4",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 2.000001145883472,
+      "limit": 0.4,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    },
+    {
+      "part": "chain_4_5",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_4_5",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 2.000001145883472,
+      "limit": 0.4,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    },
+    {
+      "part": "chain_5_6",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_5_6",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 2.000001145883472,
+      "limit": 0.4,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    }
+  ]
+}

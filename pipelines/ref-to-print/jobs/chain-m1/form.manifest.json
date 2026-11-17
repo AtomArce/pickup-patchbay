@@ -1,0 +1,43 @@
+{
+  "schema": "form.manifest/1",
+  "job": "chain-m1",
+  "units": "mm",
+  "up_axis": "Z",
+  "parts": [
+    {
+      "name": "chain_link_1",
+      "file": "form/chain_link_1.obj",
+      "triangles": 3822,
+      "bbox_mm": {
+        "min": [
+          -15.0,
+          -7.419,
+          0.0
+        ],
+        "max": [
+          15.0,
+          7.419,
+          14.2379
+        ]
+      }
+    },
+    {
+      "name": "chain_link_2",
+      "file": "form/chain_link_2.obj",
+      "triangles": 3822,
+      "bbox_mm": {
+        "min": [
+          0.2031,
+          -7.419,
+          0.0
+        ],
+        "max": [
+          30.2031,
+          7.419,
+          14.2379
+        ]
+      }
+    }
+  ],
+  "locators": []
+}

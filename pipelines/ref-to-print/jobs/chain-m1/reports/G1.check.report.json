@@ -1,0 +1,98 @@
+{
+  "schema": "check.report/1",
+  "check": "gate",
+  "job": "chain-m1",
+  "passed": true,
+  "results": [
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 1252.382524352888,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3822.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 4.28893207391901,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 1252.382530171264,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3822.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 4.288932073830172,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "check.report/1",
+  "check": "mesh",
+  "job": "chain-m1",
+  "passed": true,
+  "results": [
+    {
+      "part": "chain_link_1",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 1252.3825245809173,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "max_triangles",
+      "passed": true,
+      "value": 3822.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 4.288932071438705,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 1252.3825304668705,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "max_triangles",
+      "passed": true,
+      "value": 3822.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 4.288932071349624,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    }
+  ]
+}

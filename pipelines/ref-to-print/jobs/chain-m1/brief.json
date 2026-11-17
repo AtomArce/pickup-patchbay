@@ -1,0 +1,43 @@
+{
+  "schema": "brief/1",
+  "job": "chain-m1",
+  "title": "Milestone M1: two chain links, printed in place",
+  "units": "mm",
+  "printer": "ender3-v3se.json",
+  "target": {
+    "bbox_mm": [
+      46,
+      15,
+      15
+    ],
+    "tolerance_pct": 5
+  },
+  "parts": [
+    {
+      "name": "chain_link",
+      "count": 2,
+      "colour": "grey",
+      "shape": "analytic"
+    }
+  ],
+  "motion": [
+    {
+      "name": "chain",
+      "type": "link",
+      "parts": [
+        "chain_link",
+        "chain_link"
+      ]
+    }
+  ],
+  "refs": [],
+  "constraints": {
+    "min_wall_mm": 1.2,
+    "clearance_mm": 0.3,
+    "max_triangles_per_part": 20000
+  },
+  "assumptions": [
+    "Built by code (gen.chain), no Maya or Fusion",
+    "Print-in-place gap is clearance + 0.1 mm, minimum 0.4 mm (unverified until printed)"
+  ]
+}

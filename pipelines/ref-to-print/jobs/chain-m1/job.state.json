@@ -1,0 +1,65 @@
+{
+  "schema": "job.state/1",
+  "job": "chain-m1",
+  "escalated": false,
+  "escalation_reason": null,
+  "params": {
+    "min_wall_mm": 1.2,
+    "clearance_mm": 0.3,
+    "max_triangles_per_part": 20000
+  },
+  "steps": {
+    "S0": {
+      "status": "done",
+      "attempts": 1,
+      "needs": "none",
+      "updated": "2026-11-17T06:05:07+00:00",
+      "note": "brief validated"
+    },
+    "S1": {
+      "status": "done",
+      "attempts": 1,
+      "needs": "modelling",
+      "updated": "2026-11-17T06:05:15+00:00",
+      "note": "code-built form (gen.build --stage form)"
+    },
+    "G1": {
+      "status": "done",
+      "attempts": 1,
+      "needs": "none",
+      "updated": "2026-11-17T06:05:18+00:00",
+      "note": null,
+      "report": "reports/G1.check.report.json"
+    },
+    "S2": {
+      "status": "done",
+      "attempts": 1,
+      "needs": "none",
+      "updated": "2026-11-17T06:05:25+00:00",
+      "note": null
+    },
+    "G2": {
+      "status": "done",
+      "attempts": 1,
+      "needs": "none",
+      "updated": "2026-11-17T06:05:32+00:00",
+      "note": null,
+      "report": "reports/G2.check.report.json"
+    },
+    "S3": {
+      "status": "pending",
+      "attempts": 0,
+      "needs": "none"
+    },
+    "G3": {
+      "status": "pending",
+      "attempts": 0,
+      "needs": "none"
+    },
+    "S4": {
+      "status": "pending",
+      "attempts": 0,
+      "needs": "person"
+    }
+  }
+}

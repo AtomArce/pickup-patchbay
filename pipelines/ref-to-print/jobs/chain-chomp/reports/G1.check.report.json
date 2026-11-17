@@ -1,0 +1,638 @@
+{
+  "schema": "check.report/1",
+  "check": "gate",
+  "job": "chain-chomp",
+  "passed": true,
+  "results": [
+    {
+      "part": "body_upper",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "body_upper",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "body_upper",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 36766.05140754589,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "body_upper",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 10266.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "body_upper",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 1.3615653214412768,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "jaw_lower",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "jaw_lower",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "jaw_lower",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 36002.49593936233,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "jaw_lower",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 6428.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "jaw_lower",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 1.8619000612929177,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "hinge_pin",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "hinge_pin",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "hinge_pin",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 309.1382190280935,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "hinge_pin",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 256.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "hinge_pin",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 3.9950818200263933,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "teeth_upper",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "teeth_upper",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "teeth_upper",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 2422.845255212554,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "teeth_upper",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 1300.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "teeth_upper",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 1.505533949428274,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "teeth_lower",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "teeth_lower",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "teeth_lower",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 2241.8112170526983,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "teeth_lower",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 1140.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "teeth_lower",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 1.5055342790486463,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "eye_left",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "eye_left",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "eye_left",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 971.8009054241539,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "eye_left",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 384.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "eye_left",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 1.3998999951086655,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "eye_right",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "eye_right",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "eye_right",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 971.8009054257153,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "eye_right",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 384.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "eye_right",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 1.399899995108669,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 1252.3825243528881,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3822.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 4.288932073919007,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 1252.382530171264,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3822.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 4.288932073830168,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "chain_link_3",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_3",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_3",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 1252.3825216984617,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_3",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3822.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_3",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 4.2889320741354595,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "chain_link_4",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_4",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_4",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 1252.3825035582995,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_4",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3822.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_4",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 4.2889320741354595,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "chain_link_5",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_5",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_5",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 1252.3824899460244,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_5",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3826.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_5",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 4.288932073890834,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "chain_link_6",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "chain_link_6",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_6",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 1252.382487349293,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "chain_link_6",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3826.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "chain_link_6",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 4.288932073890834,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    },
+    {
+      "part": "stake",
+      "rule": "mesh.watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "stake",
+      "rule": "mesh.winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "stake",
+      "rule": "mesh.volume_positive",
+      "passed": true,
+      "value": 5932.430003427248,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "stake",
+      "rule": "mesh.max_triangles",
+      "passed": true,
+      "value": 3012.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "stake",
+      "rule": "mesh.min_wall",
+      "passed": true,
+      "value": 3.806664057630236,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": ""
+    }
+  ]
+}

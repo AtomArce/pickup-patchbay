@@ -1,0 +1,44 @@
+{
+  "schema": "check.report/1",
+  "check": "fit",
+  "job": "chain-m1",
+  "passed": true,
+  "results": [
+    {
+      "part": "chain_link_1",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -180.0,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 30.00 x 14.84 x 14.24 mm with print_up [0.0, 0.0, 1.0]"
+    },
+    {
+      "part": "chain_link_1",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 3.697357177756544e-05,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[-15.0, -7.419, 0.0], [15.0, 7.419, 14.238]] vs manifest [[-15.0, -7.419, 0.0], [15.0, 7.419, 14.238]]"
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -180.0,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 30.00 x 14.84 x 14.24 mm with print_up [0.0, 0.0, 1.0]"
+    },
+    {
+      "part": "chain_link_2",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 3.697357177756544e-05,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[0.203, -7.419, 0.0], [30.203, 7.419, 14.238]] vs manifest [[0.203, -7.419, 0.0], [30.203, 7.419, 14.238]]"
+    }
+  ]
+}
