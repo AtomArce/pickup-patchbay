@@ -89,7 +89,7 @@ def test_cli_writes_manifest_and_sheet(tmp_path: Path, capsys):
 
     sheet = (job_dir / "coupon.md").read_text()
     assert sheet.strip()
-    assert "python -m r2p set coupon clearance_mm=VALUE" in sheet
+    assert "python -m r2p set JOB clearance_mm=VALUE" in sheet
     assert str(job_dir / "coupon.md") in capsys.readouterr().out
 
 
