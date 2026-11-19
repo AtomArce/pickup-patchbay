@@ -10,17 +10,17 @@
       "source": "rebuilt",
       "bbox_mm": {
         "min": [
-          -58.0,
-          -49.9926,
-          -5.0
+          -67.1264,
+          -49.0811,
+          -47.2
         ],
         "max": [
-          49.9945,
-          49.9926,
+          49.9931,
+          49.0811,
           50.0
         ]
       },
-      "volume_mm3": 36766.051,
+      "volume_mm3": 55606.209,
       "colour": "black",
       "print_up": [
         0.0,
@@ -34,41 +34,41 @@
       "source": "rebuilt",
       "bbox_mm": {
         "min": [
-          -58.0,
-          -49.9926,
-          -50.0
+          -8.6698,
+          -49.8996,
+          -49.7615
         ],
         "max": [
-          49.9945,
-          49.9926,
-          5.0
+          45.2246,
+          49.8996,
+          8.6632
         ]
       },
-      "volume_mm3": 36002.496,
+      "volume_mm3": 12661.151,
       "colour": "black",
       "print_up": [
+        -0.42261826174069944,
         0.0,
-        0.0,
-        -1.0
+        -0.9063077870366499
       ]
     },
     {
-      "name": "hinge_pin",
-      "stl": "parts/hinge_pin.stl",
+      "name": "hinge_pin_left",
+      "stl": "parts/hinge_pin_left.stl",
       "source": "rebuilt",
       "bbox_mm": {
         "min": [
-          -55.0,
-          -12.32,
-          -2.0
+          -2.5,
+          43.3,
+          -2.5
         ],
         "max": [
-          -51.0,
-          12.32,
-          2.0
+          2.5,
+          49.7372,
+          2.5
         ]
       },
-      "volume_mm3": 309.138,
+      "volume_mm3": 126.191,
       "colour": "black",
       "print_up": [
         0.0,
@@ -77,22 +77,94 @@
       ]
     },
     {
+      "name": "hinge_pin_right",
+      "stl": "parts/hinge_pin_right.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -2.5,
+          -49.7372,
+          -2.5
+        ],
+        "max": [
+          2.5,
+          -43.3,
+          2.5
+        ]
+      },
+      "volume_mm3": 126.191,
+      "colour": "black",
+      "print_up": [
+        0.0,
+        -1.0,
+        0.0
+      ]
+    },
+    {
+      "name": "mouth_roof",
+      "stl": "parts/mouth_roof.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          1.0,
+          -42.4425,
+          0.2
+        ],
+        "max": [
+          47.3784,
+          42.4425,
+          3.4
+        ]
+      },
+      "volume_mm3": 9512.042,
+      "colour": "red",
+      "print_up": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "mouth_floor",
+      "stl": "parts/mouth_floor.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          -0.5306,
+          -42.4425,
+          -23.1044
+        ],
+        "max": [
+          42.8549,
+          42.4425,
+          -0.6039
+        ]
+      },
+      "volume_mm3": 9629.152,
+      "colour": "red",
+      "print_up": [
+        0.42261826174069944,
+        -0.0,
+        0.9063077870366499
+      ]
+    },
+    {
       "name": "teeth_upper",
       "stl": "parts/teeth_upper.stl",
       "source": "rebuilt",
       "bbox_mm": {
         "min": [
-          22.4177,
-          -40.4065,
-          -9.35
+          18.6224,
+          -40.2638,
+          -15.0593
         ],
         "max": [
-          46.7075,
-          40.4065,
-          8.65
+          45.8784,
+          40.2638,
+          1.8
         ]
       },
-      "volume_mm3": 2422.845,
+      "volume_mm3": 2570.202,
       "colour": "white",
       "print_up": [
         0.0,
@@ -106,22 +178,22 @@
       "source": "rebuilt",
       "bbox_mm": {
         "min": [
-          22.5758,
-          -40.4065,
-          -8.65
+          19.7796,
+          -37.3398,
+          -20.8391
         ],
         "max": [
-          46.7075,
-          40.4065,
-          9.35
+          43.2122,
+          37.3398,
+          -2.3936
         ]
       },
-      "volume_mm3": 2241.811,
+      "volume_mm3": 2357.404,
       "colour": "white",
       "print_up": [
-        0.0,
-        0.0,
-        1.0
+        0.42261826174069944,
+        -0.0,
+        0.9063077870366499
       ]
     },
     {
@@ -130,22 +202,22 @@
       "source": "rebuilt",
       "bbox_mm": {
         "min": [
-          26.1725,
-          10.8147,
-          19.0443
+          16.1671,
+          19.7175,
+          9.8232
         ],
         "max": [
-          41.1104,
-          27.273,
-          34.9824
+          38.0415,
+          40.6986,
+          32.8896
         ]
       },
-      "volume_mm3": 971.801,
+      "volume_mm3": 2487.8,
       "colour": "white",
       "print_up": [
-        0.7094064799162225,
-        0.40957602214449584,
-        0.573576436351046
+        -0.5908072581927881,
+        -0.6561579348008326,
+        -0.4694715627858908
       ]
     },
     {
@@ -154,22 +226,70 @@
       "source": "rebuilt",
       "bbox_mm": {
         "min": [
-          26.1725,
-          -27.273,
-          19.0443
+          16.1671,
+          -40.6986,
+          9.8232
         ],
         "max": [
-          41.1104,
-          -10.8147,
-          34.9824
+          38.0415,
+          -19.7175,
+          32.8896
         ]
       },
-      "volume_mm3": 971.801,
+      "volume_mm3": 2487.801,
       "colour": "white",
       "print_up": [
-        0.7094064799162225,
-        -0.40957602214449584,
-        0.573576436351046
+        -0.5908072581927881,
+        0.6561579348008326,
+        -0.4694715627858908
+      ]
+    },
+    {
+      "name": "pupil_left",
+      "stl": "parts/pupil_left.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          27.7741,
+          27.6458,
+          17.0609
+        ],
+        "max": [
+          36.9097,
+          37.2798,
+          26.9024
+        ]
+      },
+      "volume_mm3": 274.299,
+      "colour": "black",
+      "print_up": [
+        -0.5908072581927881,
+        -0.6561579348008326,
+        -0.4694715627858908
+      ]
+    },
+    {
+      "name": "pupil_right",
+      "stl": "parts/pupil_right.stl",
+      "source": "rebuilt",
+      "bbox_mm": {
+        "min": [
+          27.7741,
+          -37.2798,
+          17.0609
+        ],
+        "max": [
+          36.9097,
+          -27.6458,
+          26.9024
+        ]
+      },
+      "volume_mm3": 274.303,
+      "colour": "black",
+      "print_up": [
+        -0.5908072581927881,
+        0.6561579348008326,
+        -0.4694715627858908
       ]
     },
     {
@@ -332,7 +452,7 @@
           -37.0
         ]
       },
-      "volume_mm3": 5932.43,
+      "volume_mm3": 6029.766,
       "colour": "brown",
       "print_up": [
         0.0,
@@ -349,7 +469,7 @@
       "b": "jaw_lower",
       "clearance_mm": 0.3,
       "axis_origin": [
-        -53.0,
+        0.0,
         0.0,
         0.0
       ],
@@ -360,33 +480,59 @@
       ],
       "range_deg": [
         0.0,
-        45.0
+        40.0
       ]
     },
     {
-      "name": "pin_in_upper",
+      "name": "pin_left_in_upper",
       "type": "fixed",
       "a": "body_upper",
-      "b": "hinge_pin",
+      "b": "hinge_pin_left",
       "clearance_mm": 0
     },
     {
-      "name": "pin_in_jaw",
+      "name": "pin_left_in_jaw",
       "type": "link",
-      "a": "hinge_pin",
+      "a": "hinge_pin_left",
       "b": "jaw_lower",
       "clearance_mm": 0.24
     },
     {
-      "name": "teeth_upper_seat",
+      "name": "pin_right_in_upper",
       "type": "fixed",
       "a": "body_upper",
+      "b": "hinge_pin_right",
+      "clearance_mm": 0
+    },
+    {
+      "name": "pin_right_in_jaw",
+      "type": "link",
+      "a": "hinge_pin_right",
+      "b": "jaw_lower",
+      "clearance_mm": 0.24
+    },
+    {
+      "name": "mouth_roof_seat",
+      "type": "fixed",
+      "a": "body_upper",
+      "b": "mouth_roof"
+    },
+    {
+      "name": "mouth_floor_seat",
+      "type": "fixed",
+      "a": "jaw_lower",
+      "b": "mouth_floor"
+    },
+    {
+      "name": "teeth_upper_seat",
+      "type": "fixed",
+      "a": "mouth_roof",
       "b": "teeth_upper"
     },
     {
       "name": "teeth_lower_seat",
       "type": "fixed",
-      "a": "jaw_lower",
+      "a": "mouth_floor",
       "b": "teeth_lower"
     },
     {
@@ -400,6 +546,18 @@
       "type": "fixed",
       "a": "body_upper",
       "b": "eye_right"
+    },
+    {
+      "name": "pupil_left_seat",
+      "type": "fixed",
+      "a": "eye_left",
+      "b": "pupil_left"
+    },
+    {
+      "name": "pupil_right_seat",
+      "type": "fixed",
+      "a": "eye_right",
+      "b": "pupil_right"
     },
     {
       "name": "chain_1_2",

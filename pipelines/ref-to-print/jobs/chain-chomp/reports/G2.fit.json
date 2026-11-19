@@ -8,127 +8,217 @@
       "part": "body_upper",
       "rule": "fits_build_volume",
       "passed": true,
-      "value": -102.00553894042969,
+      "value": -92.88047409057617,
       "limit": 0.0,
       "unit": "mm",
-      "note": "extents 107.99 x 99.99 x 55.00 mm with print_up [0.0, 0.0, 1.0]"
+      "note": "extents 117.12 x 98.16 x 97.20 mm with print_up [0.0, 0.0, 1.0]"
     },
     {
       "part": "body_upper",
       "rule": "bbox_matches_manifest",
       "passed": true,
-      "value": 3.894042968966005e-05,
+      "value": 4.9584960933657385e-05,
       "limit": 0.5,
       "unit": "mm",
-      "note": "mesh bounds [[-58.0, -49.993, -5.0], [49.994, 49.993, 50.0]] vs manifest [[-58.0, -49.993, -5.0], [49.994, 49.993, 50.0]]"
+      "note": "mesh bounds [[-67.126, -49.081, -47.2], [49.993, 49.081, 50.0]] vs manifest [[-67.126, -49.081, -47.2], [49.993, 49.081, 50.0]]"
     },
     {
       "part": "jaw_lower",
       "rule": "fits_build_volume",
       "passed": true,
-      "value": -102.00553894042969,
+      "value": -110.20074462890625,
       "limit": 0.0,
       "unit": "mm",
-      "note": "extents 107.99 x 99.99 x 55.00 mm with print_up [0.0, 0.0, -1.0]"
+      "note": "extents 58.67 x 99.80 x 51.93 mm with print_up [-0.423, 0.0, -0.906]"
     },
     {
       "part": "jaw_lower",
       "rule": "bbox_matches_manifest",
       "passed": true,
-      "value": 3.894042968966005e-05,
+      "value": 3.204650878885218e-05,
       "limit": 0.5,
       "unit": "mm",
-      "note": "mesh bounds [[-58.0, -49.993, -50.0], [49.994, 49.993, 5.0]] vs manifest [[-58.0, -49.993, -50.0], [49.994, 49.993, 5.0]]"
+      "note": "mesh bounds [[-8.67, -49.9, -49.761], [45.225, 49.9, 8.663]] vs manifest [[-8.67, -49.9, -49.762], [45.225, 49.9, 8.663]]"
     },
     {
-      "part": "hinge_pin",
+      "part": "hinge_pin_left",
       "rule": "fits_build_volume",
       "passed": true,
-      "value": -206.0,
+      "value": -205.0,
       "limit": 0.0,
       "unit": "mm",
-      "note": "extents 4.00 x 4.00 x 24.64 mm with print_up [0.0, 1.0, 0.0]"
+      "note": "extents 5.00 x 5.00 x 6.44 mm with print_up [0.0, 1.0, 0.0]"
     },
     {
-      "part": "hinge_pin",
+      "part": "hinge_pin_left",
       "rule": "bbox_matches_manifest",
       "passed": true,
-      "value": 3.051757815342171e-07,
+      "value": 9.320068357965283e-06,
       "limit": 0.5,
       "unit": "mm",
-      "note": "mesh bounds [[-55.0, -12.32, -2.0], [-51.0, 12.32, 2.0]] vs manifest [[-55.0, -12.32, -2.0], [-51.0, 12.32, 2.0]]"
+      "note": "mesh bounds [[-2.5, 43.3, -2.5], [2.5, 49.737, 2.5]] vs manifest [[-2.5, 43.3, -2.5], [2.5, 49.737, 2.5]]"
+    },
+    {
+      "part": "hinge_pin_right",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -205.0,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 5.00 x 5.00 x 6.44 mm with print_up [0.0, -1.0, 0.0]"
+    },
+    {
+      "part": "hinge_pin_right",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 9.320068357965283e-06,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[-2.5, -49.737, -2.5], [2.5, -43.3, 2.5]] vs manifest [[-2.5, -49.737, -2.5], [2.5, -43.3, 2.5]]"
+    },
+    {
+      "part": "mouth_roof",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -125.11509704589844,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 46.38 x 84.88 x 3.20 mm with print_up [0.0, 0.0, 1.0]"
+    },
+    {
+      "part": "mouth_roof",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 4.8522949221307954e-05,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[1.0, -42.442, 0.2], [47.378, 42.442, 3.4]] vs manifest [[1.0, -42.442, 0.2], [47.378, 42.442, 3.4]]"
+    },
+    {
+      "part": "mouth_floor",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -125.11509704589844,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 46.38 x 84.88 x 3.20 mm with print_up [0.423, -0.0, 0.906]"
+    },
+    {
+      "part": "mouth_floor",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 4.8522949221307954e-05,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[-0.531, -42.442, -23.104], [42.855, 42.442, -0.604]] vs manifest [[-0.531, -42.442, -23.104], [42.855, 42.442, -0.604]]"
     },
     {
       "part": "teeth_upper",
       "rule": "fits_build_volume",
       "passed": true,
-      "value": -129.18695068359375,
+      "value": -129.47241973876953,
       "limit": 0.0,
       "unit": "mm",
-      "note": "extents 24.29 x 80.81 x 18.00 mm with print_up [0.0, 0.0, -1.0]"
+      "note": "extents 27.26 x 80.53 x 16.86 mm with print_up [0.0, 0.0, -1.0]"
     },
     {
       "part": "teeth_upper",
       "rule": "bbox_matches_manifest",
       "passed": true,
-      "value": 4.913330078437639e-05,
+      "value": 1.7968750000818545e-05,
       "limit": 0.5,
       "unit": "mm",
-      "note": "mesh bounds [[22.418, -40.407, -9.35], [46.707, 40.407, 8.65]] vs manifest [[22.418, -40.406, -9.35], [46.708, 40.406, 8.65]]"
+      "note": "mesh bounds [[18.622, -40.264, -15.059], [45.878, 40.264, 1.8]] vs manifest [[18.622, -40.264, -15.059], [45.878, 40.264, 1.8]]"
     },
     {
       "part": "teeth_lower",
       "rule": "fits_build_volume",
       "passed": true,
-      "value": -129.18695068359375,
+      "value": -135.32049560546875,
       "limit": 0.0,
       "unit": "mm",
-      "note": "extents 24.13 x 80.81 x 18.00 mm with print_up [0.0, 0.0, 1.0]"
+      "note": "extents 23.31 x 74.68 x 16.77 mm with print_up [0.423, -0.0, 0.906]"
     },
     {
       "part": "teeth_lower",
       "rule": "bbox_matches_manifest",
       "passed": true,
-      "value": 4.913330078437639e-05,
+      "value": 4.94750976578473e-05,
       "limit": 0.5,
       "unit": "mm",
-      "note": "mesh bounds [[22.576, -40.407, -8.65], [46.707, 40.407, 9.35]] vs manifest [[22.576, -40.406, -8.65], [46.708, 40.406, 9.35]]"
+      "note": "mesh bounds [[19.78, -37.34, -20.839], [43.212, 37.34, -2.394]] vs manifest [[19.78, -37.34, -20.839], [43.212, 37.34, -2.394]]"
     },
     {
       "part": "eye_left",
       "rule": "fits_build_volume",
       "passed": true,
-      "value": -192.9999989674444,
+      "value": -184.9999977949695,
       "limit": 0.0,
       "unit": "mm",
-      "note": "extents 17.00 x 17.00 x 5.67 mm with print_up [0.709, 0.41, 0.574]"
+      "note": "extents 25.00 x 25.00 x 8.53 mm with print_up [-0.591, -0.656, -0.469]"
     },
     {
       "part": "eye_left",
       "rule": "bbox_matches_manifest",
       "passed": true,
-      "value": 4.9511718749783995e-05,
+      "value": 4.264831542855063e-05,
       "limit": 0.5,
       "unit": "mm",
-      "note": "mesh bounds [[26.172, 10.815, 19.044], [41.11, 27.273, 34.982]] vs manifest [[26.172, 10.815, 19.044], [41.11, 27.273, 34.982]]"
+      "note": "mesh bounds [[16.167, 19.718, 9.823], [38.042, 40.699, 32.89]] vs manifest [[16.167, 19.718, 9.823], [38.042, 40.699, 32.89]]"
     },
     {
       "part": "eye_right",
       "rule": "fits_build_volume",
       "passed": true,
-      "value": -192.9999989674444,
+      "value": -184.9999977949695,
       "limit": 0.0,
       "unit": "mm",
-      "note": "extents 17.00 x 17.00 x 5.67 mm with print_up [0.709, -0.41, 0.574]"
+      "note": "extents 25.00 x 25.00 x 8.53 mm with print_up [-0.591, 0.656, -0.469]"
     },
     {
       "part": "eye_right",
       "rule": "bbox_matches_manifest",
       "passed": true,
-      "value": 4.9511718749783995e-05,
+      "value": 4.264831542855063e-05,
       "limit": 0.5,
       "unit": "mm",
-      "note": "mesh bounds [[26.172, -27.273, 19.044], [41.11, -10.815, 34.982]] vs manifest [[26.172, -27.273, 19.044], [41.11, -10.815, 34.982]]"
+      "note": "mesh bounds [[16.167, -40.699, 9.823], [38.042, -19.718, 32.89]] vs manifest [[16.167, -40.699, 9.823], [38.042, -19.718, 32.89]]"
+    },
+    {
+      "part": "pupil_left",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -200.48852301629753,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 9.51 x 9.38 x 5.69 mm with print_up [-0.591, -0.656, -0.469]"
+    },
+    {
+      "part": "pupil_left",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 4.9176025392227984e-05,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[27.774, 27.646, 17.061], [36.91, 37.28, 26.902]] vs manifest [[27.774, 27.646, 17.061], [36.91, 37.28, 26.902]]"
+    },
+    {
+      "part": "pupil_right",
+      "rule": "fits_build_volume",
+      "passed": true,
+      "value": -200.48852301629753,
+      "limit": 0.0,
+      "unit": "mm",
+      "note": "extents 9.51 x 9.38 x 5.69 mm with print_up [-0.591, 0.656, -0.469]"
+    },
+    {
+      "part": "pupil_right",
+      "rule": "bbox_matches_manifest",
+      "passed": true,
+      "value": 4.9176025392227984e-05,
+      "limit": 0.5,
+      "unit": "mm",
+      "note": "mesh bounds [[27.774, -37.28, 17.061], [36.91, -27.646, 26.902]] vs manifest [[27.774, -37.28, 17.061], [36.91, -27.646, 26.902]]"
     },
     {
       "part": "chain_link_1",

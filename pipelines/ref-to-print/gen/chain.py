@@ -153,9 +153,11 @@ def build_stake(wire: float = 5.0, y_offset: float = 25.0) -> dict[str, Any]:
     shaft_len = STAKE_LENGTH - STAKE_CONE
     zc = r - 1.0  # shaft axis height: 1 mm flat cut below the bed
     shaft = cylinder_between((0, y_offset, zc), (shaft_len, y_offset, zc), r)
-    cone = trimesh.creation.cone(radius=r, height=STAKE_CONE, sections=64)
-    cone.apply_transform(trimesh.transformations.rotation_matrix(np.pi / 2, [0, 1, 0]))  # +Z axis -> +X
-    cone.apply_translation((shaft_len, y_offset, zc))
+    # Blunt point (0.8 mm radius): a sharp tip is thinner than any printable wall for its last millimetre.
+    t = np.linspace(0, 2 * np.pi, 64, endpoint=False)
+    cone = trimesh.convex.convex_hull(np.array(
+        [(shaft_len, y_offset + r * np.cos(v), zc + r * np.sin(v)) for v in t]
+        + [(STAKE_LENGTH, y_offset + 0.8 * np.cos(v), zc + 0.8 * np.sin(v)) for v in t]))
     tube_r = wire / 2
     ring_major = (wire + 4.0) / 2 + tube_r  # inner opening = wire + 4 mm
     ring = trimesh.creation.torus(ring_major, tube_r, major_sections=64, minor_sections=24)

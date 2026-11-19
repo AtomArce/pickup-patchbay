@@ -26,7 +26,7 @@
       "part": "body_upper",
       "rule": "volume_positive",
       "passed": true,
-      "value": 36766.051413114146,
+      "value": 55606.20878563173,
       "limit": null,
       "unit": "mm3",
       "note": ""
@@ -35,7 +35,7 @@
       "part": "body_upper",
       "rule": "max_triangles",
       "passed": true,
-      "value": 10266.0,
+      "value": 15012.0,
       "limit": 20000.0,
       "unit": "",
       "note": ""
@@ -44,10 +44,10 @@
       "part": "body_upper",
       "rule": "min_wall",
       "passed": true,
-      "value": 1.3615652975747157,
+      "value": 1.3642811454786445,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "1910 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "jaw_lower",
@@ -71,7 +71,7 @@
       "part": "jaw_lower",
       "rule": "volume_positive",
       "passed": true,
-      "value": 36002.49594475716,
+      "value": 12661.150452851436,
       "limit": null,
       "unit": "mm3",
       "note": ""
@@ -80,7 +80,7 @@
       "part": "jaw_lower",
       "rule": "max_triangles",
       "passed": true,
-      "value": 6428.0,
+      "value": 3488.0,
       "limit": 20000.0,
       "unit": "",
       "note": ""
@@ -89,13 +89,13 @@
       "part": "jaw_lower",
       "rule": "min_wall",
       "passed": true,
-      "value": 1.8619075121771491,
+      "value": 2.3971674751844936,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "1880 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
-      "part": "hinge_pin",
+      "part": "hinge_pin_left",
       "rule": "watertight",
       "passed": true,
       "value": 0.0,
@@ -104,7 +104,7 @@
       "note": ""
     },
     {
-      "part": "hinge_pin",
+      "part": "hinge_pin_left",
       "rule": "winding",
       "passed": true,
       "value": null,
@@ -113,16 +113,16 @@
       "note": ""
     },
     {
-      "part": "hinge_pin",
+      "part": "hinge_pin_left",
       "rule": "volume_positive",
       "passed": true,
-      "value": 309.1382533233991,
+      "value": 126.19138524647478,
       "limit": null,
       "unit": "mm3",
       "note": ""
     },
     {
-      "part": "hinge_pin",
+      "part": "hinge_pin_left",
       "rule": "max_triangles",
       "passed": true,
       "value": 256.0,
@@ -131,13 +131,148 @@
       "note": ""
     },
     {
-      "part": "hinge_pin",
+      "part": "hinge_pin_left",
       "rule": "min_wall",
       "passed": true,
-      "value": 3.995080262726204,
+      "value": 4.993877217040631,
       "limit": 1.2,
       "unit": "mm",
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
+    },
+    {
+      "part": "hinge_pin_right",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
       "note": ""
+    },
+    {
+      "part": "hinge_pin_right",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "hinge_pin_right",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 126.19138524647478,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "hinge_pin_right",
+      "rule": "max_triangles",
+      "passed": true,
+      "value": 256.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "hinge_pin_right",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 4.993877217040631,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
+    },
+    {
+      "part": "mouth_roof",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "mouth_roof",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "mouth_roof",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 9512.042148548486,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "mouth_roof",
+      "rule": "max_triangles",
+      "passed": true,
+      "value": 552.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "mouth_roof",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 1.3994748944234827,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": "1980 of 2000 rays met an opposite face; side-face exits at edges not counted"
+    },
+    {
+      "part": "mouth_floor",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "mouth_floor",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "mouth_floor",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 9629.152296461672,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "mouth_floor",
+      "rule": "max_triangles",
+      "passed": true,
+      "value": 520.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "mouth_floor",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 1.3994756675364532,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": "1992 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "teeth_upper",
@@ -161,7 +296,7 @@
       "part": "teeth_upper",
       "rule": "volume_positive",
       "passed": true,
-      "value": 2422.845255632197,
+      "value": 2570.2022428228215,
       "limit": null,
       "unit": "mm3",
       "note": ""
@@ -170,7 +305,7 @@
       "part": "teeth_upper",
       "rule": "max_triangles",
       "passed": true,
-      "value": 1300.0,
+      "value": 1824.0,
       "limit": 20000.0,
       "unit": "",
       "note": ""
@@ -179,10 +314,10 @@
       "part": "teeth_upper",
       "rule": "min_wall",
       "passed": true,
-      "value": 1.5055339518367767,
+      "value": 1.2999000119209287,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "1580 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "teeth_lower",
@@ -206,7 +341,7 @@
       "part": "teeth_lower",
       "rule": "volume_positive",
       "passed": true,
-      "value": 2241.8112168993393,
+      "value": 2357.404387349969,
       "limit": null,
       "unit": "mm3",
       "note": ""
@@ -215,7 +350,7 @@
       "part": "teeth_lower",
       "rule": "max_triangles",
       "passed": true,
-      "value": 1140.0,
+      "value": 1636.0,
       "limit": 20000.0,
       "unit": "",
       "note": ""
@@ -224,10 +359,10 @@
       "part": "teeth_lower",
       "rule": "min_wall",
       "passed": true,
-      "value": 1.5055342812101977,
+      "value": 1.2998987445177232,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "1640 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "eye_left",
@@ -251,7 +386,7 @@
       "part": "eye_left",
       "rule": "volume_positive",
       "passed": true,
-      "value": 971.8009416197583,
+      "value": 2487.800202314898,
       "limit": null,
       "unit": "mm3",
       "note": ""
@@ -260,7 +395,7 @@
       "part": "eye_left",
       "rule": "max_triangles",
       "passed": true,
-      "value": 384.0,
+      "value": 2798.0,
       "limit": 20000.0,
       "unit": "",
       "note": ""
@@ -269,10 +404,10 @@
       "part": "eye_left",
       "rule": "min_wall",
       "passed": true,
-      "value": 1.3998984882540009,
+      "value": 1.3998977000259603,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "1825 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "eye_right",
@@ -296,7 +431,7 @@
       "part": "eye_right",
       "rule": "volume_positive",
       "passed": true,
-      "value": 971.8009413067712,
+      "value": 2487.801237245403,
       "limit": null,
       "unit": "mm3",
       "note": ""
@@ -305,7 +440,7 @@
       "part": "eye_right",
       "rule": "max_triangles",
       "passed": true,
-      "value": 384.0,
+      "value": 2790.0,
       "limit": 20000.0,
       "unit": "",
       "note": ""
@@ -314,10 +449,100 @@
       "part": "eye_right",
       "rule": "min_wall",
       "passed": true,
-      "value": 1.3998982191541178,
+      "value": 1.3998975808503513,
       "limit": 1.2,
       "unit": "mm",
+      "note": "1841 of 2000 rays met an opposite face; side-face exits at edges not counted"
+    },
+    {
+      "part": "pupil_left",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
       "note": ""
+    },
+    {
+      "part": "pupil_left",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "pupil_left",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 274.2990508781052,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "pupil_left",
+      "rule": "max_triangles",
+      "passed": true,
+      "value": 376.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "pupil_left",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 4.049427793550044,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": "1998 of 2000 rays met an opposite face; side-face exits at edges not counted"
+    },
+    {
+      "part": "pupil_right",
+      "rule": "watertight",
+      "passed": true,
+      "value": 0.0,
+      "limit": null,
+      "unit": "edges",
+      "note": ""
+    },
+    {
+      "part": "pupil_right",
+      "rule": "winding",
+      "passed": true,
+      "value": null,
+      "limit": null,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "pupil_right",
+      "rule": "volume_positive",
+      "passed": true,
+      "value": 274.30303873960594,
+      "limit": null,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "pupil_right",
+      "rule": "max_triangles",
+      "passed": true,
+      "value": 378.0,
+      "limit": 20000.0,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "part": "pupil_right",
+      "rule": "min_wall",
+      "passed": true,
+      "value": 4.047177702146747,
+      "limit": 1.2,
+      "unit": "mm",
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "chain_link_1",
@@ -359,10 +584,10 @@
       "part": "chain_link_1",
       "rule": "min_wall",
       "passed": true,
-      "value": 4.288932207728578,
+      "value": 3.7398525977725257,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "chain_link_2",
@@ -404,10 +629,10 @@
       "part": "chain_link_2",
       "rule": "min_wall",
       "passed": true,
-      "value": 4.288932207728578,
+      "value": 3.743913060704152,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "chain_link_3",
@@ -449,10 +674,10 @@
       "part": "chain_link_3",
       "rule": "min_wall",
       "passed": true,
-      "value": 4.288932207728578,
+      "value": 3.7398525977725257,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "chain_link_4",
@@ -494,10 +719,10 @@
       "part": "chain_link_4",
       "rule": "min_wall",
       "passed": true,
-      "value": 4.288932207728578,
+      "value": 3.743913060698958,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "chain_link_5",
@@ -539,10 +764,10 @@
       "part": "chain_link_5",
       "rule": "min_wall",
       "passed": true,
-      "value": 4.288932206969719,
+      "value": 3.7398525977725257,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "chain_link_6",
@@ -584,10 +809,10 @@
       "part": "chain_link_6",
       "rule": "min_wall",
       "passed": true,
-      "value": 4.288932206969719,
+      "value": 3.7400568377303287,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "2000 of 2000 rays met an opposite face; side-face exits at edges not counted"
     },
     {
       "part": "stake",
@@ -611,7 +836,7 @@
       "part": "stake",
       "rule": "volume_positive",
       "passed": true,
-      "value": 5932.429934804398,
+      "value": 6029.765800365099,
       "limit": null,
       "unit": "mm3",
       "note": ""
@@ -620,7 +845,7 @@
       "part": "stake",
       "rule": "max_triangles",
       "passed": true,
-      "value": 3012.0,
+      "value": 3160.0,
       "limit": 20000.0,
       "unit": "",
       "note": ""
@@ -629,10 +854,10 @@
       "part": "stake",
       "rule": "min_wall",
       "passed": true,
-      "value": 3.806663847026421,
+      "value": 2.204355232849336,
       "limit": 1.2,
       "unit": "mm",
-      "note": ""
+      "note": "1883 of 2000 rays met an opposite face; side-face exits at edges not counted"
     }
   ]
 }

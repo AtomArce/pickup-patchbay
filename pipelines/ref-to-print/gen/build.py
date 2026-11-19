@@ -20,6 +20,7 @@ from pathlib import Path
 
 from checks.report import EXIT_ERROR, load_json, validate
 from gen import common
+from gen.head import HEAD_PREFIXES
 
 
 def wanted_parts(brief: dict, milestone: str | None) -> dict[str, int]:
@@ -80,7 +81,7 @@ def build(job_dir: Path, milestone: str | None = None, stage: str = "parts") -> 
         return built
     common.save_parts(
         job_dir, brief["job"], parts, mates, clearance, wall,
-        drop_prefixes=("body_upper", "jaw_lower", "hinge_pin", "teeth_", "eye_", "chain_link_", "stake"),
+        drop_prefixes=(*HEAD_PREFIXES, "chain_link_", "stake"),
     )
     return built
 

@@ -17,7 +17,7 @@
       "part": "jaw_hinge",
       "rule": "min_gap",
       "passed": true,
-      "value": 0.3199999928474426,
+      "value": 0.34980620181821853,
       "limit": 0.3,
       "unit": "mm",
       "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
@@ -29,10 +29,10 @@
       "value": 0.0,
       "limit": 0.01,
       "unit": "mm3",
-      "note": "11 poses; worst at 0.0 deg; moving group: jaw_lower, teeth_lower; checked against 12 other part(s)"
+      "note": "11 poses; worst at 0.0 deg; moving group: jaw_lower, mouth_floor, teeth_lower; checked against 16 other part(s)"
     },
     {
-      "part": "pin_in_upper",
+      "part": "pin_left_in_upper",
       "rule": "no_intersection",
       "passed": true,
       "value": 0.0,
@@ -41,7 +41,7 @@
       "note": ""
     },
     {
-      "part": "pin_in_jaw",
+      "part": "pin_left_in_jaw",
       "rule": "no_intersection",
       "passed": true,
       "value": 0.0,
@@ -50,13 +50,58 @@
       "note": ""
     },
     {
-      "part": "pin_in_jaw",
+      "part": "pin_left_in_jaw",
       "rule": "min_gap",
       "passed": true,
-      "value": 0.299637360836454,
+      "value": 0.39654381822700163,
       "limit": 0.24,
       "unit": "mm",
       "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    },
+    {
+      "part": "pin_right_in_upper",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "pin_right_in_jaw",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "pin_right_in_jaw",
+      "rule": "min_gap",
+      "passed": true,
+      "value": 0.3965439428089233,
+      "limit": 0.24,
+      "unit": "mm",
+      "note": "nearest of 20000 surface samples per mesh, both ways (KD-tree prefilter, exact point-to-triangle distance); about 0.05 mm accurate"
+    },
+    {
+      "part": "mouth_roof_seat",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "mouth_floor_seat",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
     },
     {
       "part": "teeth_upper_seat",
@@ -71,7 +116,7 @@
       "part": "teeth_lower_seat",
       "rule": "no_intersection",
       "passed": true,
-      "value": 0.0,
+      "value": 2.2650876720338903e-05,
       "limit": 0.01,
       "unit": "mm3",
       "note": ""
@@ -87,6 +132,24 @@
     },
     {
       "part": "eye_right_seat",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "pupil_left_seat",
+      "rule": "no_intersection",
+      "passed": true,
+      "value": 0.0,
+      "limit": 0.01,
+      "unit": "mm3",
+      "note": ""
+    },
+    {
+      "part": "pupil_right_seat",
       "rule": "no_intersection",
       "passed": true,
       "value": 0.0,

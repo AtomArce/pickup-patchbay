@@ -28,7 +28,7 @@ Both routes write the same `parts.manifest.json`, so the gates, the renderer and
 |---|---|---|
 | `coupon` | Clearance test: seven holes from 0.10 to 0.50 mm gap and one peg. Print it, then set the measured gap with `r2p set` | generated, checks pass, not printed |
 | `chain-m1` | Milestone M1: two chain links, printed in place | passes G1 and G2 |
-| `chain-chomp` | Head with hinged jaw, pin, teeth, eyes, six links, stake | passes G1 and G2. The chain is not yet hooked to the head or the stake |
+| `chain-chomp` | Head (second pass, from a side-view reference): Pac-Man jaw pivoting on pins at the sides of the ball, red mouth plates, two rows of interleaved teeth, domed eyes with pupils; six links, stake | passes G1 and G2. The chain is not yet hooked to the head or the stake |
 
 Rebuild any of them (geometry is not committed):
 
@@ -38,6 +38,44 @@ uv run python -m r2p run chain-chomp S2      # or: uv run python -m gen.build --
 uv run python -m viz.render --job-dir jobs/chain-chomp
 uv run python -m viz.render --job-dir jobs/chain-chomp --pose jaw_hinge=40 --out-dir jobs/chain-chomp/views/open
 ```
+
+## View a job
+
+A browser viewer (three.js, no build step, the same pattern as morph-hanger's viewer; no code is shared):
+
+```bash
+uv run python -m viewer.serve            # loopback only; prints the URL and an ssh -L line
+uv run python -m viewer.serve --tailnet  # also tailscale serve on 8445; Ctrl-C removes only that entry
+```
+
+`--tailnet` needs this user to be the tailscale operator (`sudo tailscale set --operator=$USER`, once); until then tailscale refuses the serve config and the SSH tunnel is the way in. It refuses to start if 8445 is already served (for example by `hanger up`). It never uses funnel and never touches another port. The viewer is read-only: nothing in it writes files or runs a stage. Geometry is gitignored, so build it first (`uv run python -m r2p run JOB S2`).
+
+The PNG renderer in `viz/` stays for headless use and for the driver skill.
+
+### Server contract (shared by `viewer/serve.py` and `web/r2p-viewer/`)
+
+Bound to 127.0.0.1 only. GET and HEAD only; anything else is 405. Requests whose `Host` is not loopback or the tailnet name get 403. A path that is not listed, or that resolves outside its folder, is 404.
+
+| Path | What |
+|---|---|
+| `/` | redirect (302) to `/web/r2p-viewer/` |
+| `/web/r2p-viewer/<file>` | the page: `.html`, `.mjs`, `.css`, `.json` |
+| `/printer/<name>.json` | printer profiles |
+| `/jobs/<job>/<file>.json` | `parts.manifest.json`, `job.state.json`, `brief.json`, `form.manifest.json` |
+| `/jobs/<job>/reports/<file>.json` | check and slice reports |
+| `/jobs/<job>/parts/<part>.stl` | part meshes (`model/stl`) |
+| `/jobs/<job>/views/<...>.png` | renderer output |
+| `/api/jobs` | JSON list, below |
+
+`/api/jobs` returns jobs (folders under `jobs/`) that have a `parts.manifest.json`, sorted by name:
+
+```json
+{"jobs": [{"job": "chain-chomp", "parts": 14, "printer": "ender3-v3se",
+           "next": "S3", "gates": {"G1": "done", "G2": "done", "G3": "pending"},
+           "reports": ["reports/G1.check.report.json", "reports/G2.check.report.json"]}]}
+```
+
+`next` is the first step in `job.state.json` that is not `done` (null when all are done or there is no state file), `gates` the status of G1 to G3 (`"pending"` when absent), `reports` every `reports/*.json` path relative to the job folder. `printer` is the brief's printer id, or null.
 
 ## Driving a job
 

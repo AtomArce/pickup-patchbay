@@ -21,6 +21,7 @@ from checks.report import EXIT_ERROR, finish, load_json, make_report, result
 
 RAY_SAMPLES = 2000
 RAY_OFFSET = 1e-4  # ray starts this far inside the surface (mm)
+WALL_FACING_DOT = -0.5  # start and hit normals more than 120 degrees apart: a wall, not an edge
 
 
 def open_edge_count(mesh: trimesh.Trimesh) -> int:
@@ -29,20 +30,33 @@ def open_edge_count(mesh: trimesh.Trimesh) -> int:
 
 
 def wall_result(mesh: trimesh.Trimesh, name: str, limit: float) -> dict[str, Any]:
-    """Thinnest wall estimate: shoot rays inward from sampled faces to the opposite side."""
-    centres = mesh.triangles_center
-    normals = mesh.face_normals
-    if len(centres) > RAY_SAMPLES:
-        pick = np.random.default_rng(0).choice(len(centres), RAY_SAMPLES, replace=False)
-        centres, normals = centres[pick], normals[pick]
+    """Thinnest wall estimate: shoot rays inward from sampled surface points to the opposite side.
+
+    Points are sampled by surface area, not one per triangle. Booleans leave many tiny triangles
+    along cut edges; one ray per triangle centre over-samples those edges and reports slivers
+    (0.001 mm2 triangles beside a hole) as thin walls. A real thin wall has area, so area
+    sampling still finds it (see tests/test_mesh_check.py::test_thin_shell_fails_min_wall).
+
+    A wall is material between two surfaces that face away from each other. A ray that starts a
+    hair from a square edge and leaves through the side face (normals about 90 degrees apart)
+    measures the distance to the edge, not a wall, so it is not counted. Knife edges still count:
+    the faces of a wedge sharper than 60 degrees face away from each other.
+    """
+    centres, face_index = trimesh.sample.sample_surface(mesh, RAY_SAMPLES, seed=0)
+    normals = mesh.face_normals[face_index]
     origins = centres - normals * RAY_OFFSET
-    locations, index_ray, _ = mesh.ray.intersects_location(
+    locations, index_ray, index_tri = mesh.ray.intersects_location(
         origins, -normals, multiple_hits=False
     )
     if len(index_ray) == 0:
         return result(name, "min_wall", False, limit=limit, unit="mm", note="no rays hit")
-    thinnest = float(np.linalg.norm(locations - origins[index_ray], axis=1).min())
-    return result(name, "min_wall", thinnest >= limit, value=thinnest, limit=limit, unit="mm")
+    facing = np.einsum("ij,ij->i", normals[index_ray], mesh.face_normals[index_tri]) < WALL_FACING_DOT
+    if not facing.any():
+        return result(name, "min_wall", False, limit=limit, unit="mm", note="no ray met an opposite face")
+    lengths = np.linalg.norm(locations - origins[index_ray], axis=1)[facing]
+    thinnest = float(lengths.min())
+    note = f"{int(facing.sum())} of {len(index_ray)} rays met an opposite face; side-face exits at edges not counted"
+    return result(name, "min_wall", thinnest >= limit, value=thinnest, limit=limit, unit="mm", note=note)
 
 
 def check_mesh(

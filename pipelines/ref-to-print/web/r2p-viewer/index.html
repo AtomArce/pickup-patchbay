@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>r2p viewer</title>
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<main id="canvas-host"></main>
+<div id="hover" hidden></div>
+<button id="panel-toggle" aria-expanded="true">Panel</button>
+<aside id="panel">
+  <h1>r2p viewer</h1>
+  <label>Job <select id="job"></select></label>
+  <div id="status" role="status">Loading…</div>
+
+  <section>
+    <h2>Parts <a href="#" id="show-all">show all</a></h2>
+    <ul id="parts"></ul>
+    <div id="selected">Click a part to select it.</div>
+  </section>
+  <section>
+    <h2>Hinges</h2>
+    <div id="hinges"><span class="muted">none</span></div>
+  </section>
+  <section>
+    <h2>Checks</h2>
+    <ul id="checks"><li class="muted">none</li></ul>
+  </section>
+  <section>
+    <h2>View</h2>
+    <label><input type="checkbox" id="t-bed" checked> Bed outline</label>
+    <label><input type="checkbox" id="t-axes"> Axes</label>
+    <label><input type="checkbox" id="t-wire"> Wireframe</label>
+    <div class="buttons">
+      <button id="reset-view">Reset view</button>
+      <button id="screenshot">Screenshot</button>
+    </div>
+  </section>
+</aside>
+<script type="module" src="./viewer.mjs"></script>
+</body>
+</html>

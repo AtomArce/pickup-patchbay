@@ -31,6 +31,28 @@ def intersection(meshes: Iterable[trimesh.Trimesh]) -> trimesh.Trimesh:
     return trimesh.boolean.intersection(list(meshes), engine="manifold")
 
 
+def clean(mesh: trimesh.Trimesh, tolerance: float = 0.005) -> trimesh.Trimesh:
+    """Collapse edges shorter than tolerance (mm) left by booleans.
+
+    Booleans between faceted surfaces leave near-zero triangles. They break the STL round trip
+    (vertices weld and the mesh stops being watertight) and fool the ray wall check.
+    """
+    import manifold3d
+
+    m = manifold3d.Manifold(manifold3d.Mesh64(vert_properties=np.asarray(mesh.vertices, dtype=np.float64),
+                                              tri_verts=np.asarray(mesh.faces, dtype=np.uint32)))
+    out = m.simplify(tolerance).to_mesh64()
+    return trimesh.Trimesh(vertices=np.asarray(out.vert_properties)[:, :3], faces=np.asarray(out.tri_verts), process=True)
+
+
+def stl_round_trip_ok(mesh: trimesh.Trimesh) -> bool:
+    """True when the mesh is still watertight after writing and reading it back as binary STL."""
+    import io
+
+    back = trimesh.load(io.BytesIO(mesh.export(file_type="stl")), file_type="stl", force="mesh")
+    return bool(back.is_watertight)
+
+
 def cylinder_between(p0: Iterable[float], p1: Iterable[float], radius: float, sections: int = 64) -> trimesh.Trimesh:
     """Solid cylinder whose axis runs from p0 to p1."""
     return trimesh.creation.cylinder(radius=radius, segment=[list(p0), list(p1)], sections=sections)
@@ -103,6 +125,8 @@ def save_parts(
         mesh: trimesh.Trimesh = p["mesh"]
         if not mesh.is_watertight:
             raise ValueError(f"part {p['name']} is not watertight; refusing to write it")
+        if not stl_round_trip_ok(mesh):
+            raise ValueError(f"part {p['name']} stops being watertight when written as STL; refusing to write it")
         rel = f"parts/{p['name']}.stl"
         mesh.export(job_dir / rel)
         entry: dict[str, Any] = {

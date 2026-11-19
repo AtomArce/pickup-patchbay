@@ -113,3 +113,26 @@ def test_job_dir_mode_writes_valid_report(cube, save_mesh, tmp_path):
     assert doc["passed"] is True
     assert {r["part"] for r in doc["results"]} == {"cube"}
     assert {r["rule"] for r in doc["results"]} >= {"max_triangles", "min_wall"}
+
+
+def test_knife_edge_still_fails_min_wall(save_mesh, tmp_path):
+    # A 20 degree wedge: its two big faces meet in a knife edge. That is a thin wall, not an edge effect.
+    import numpy as np
+    import trimesh
+    t = np.radians(20)
+    pts = [(0, 0, 0), (0, 0, 10), (30, 0, 0), (30, 0, 10), (30, 30 * np.tan(t), 0), (30, 30 * np.tan(t), 10)]
+    mesh = save_mesh(trimesh.convex.convex_hull(np.array(pts, dtype=float)), tmp_path, "wedge.stl")
+    out = tmp_path / "r.json"
+    assert main(["--mesh", str(mesh), "--min-wall", "1.2", "--out", str(out)]) == 1
+    assert rules(out)["min_wall"]["value"] < 1.2
+
+
+def test_square_edges_of_a_drilled_plate_pass(save_mesh, tmp_path):
+    # A 3 mm plate with a hole: rays starting beside the hole leave through the hole wall. Not a thin wall.
+    import trimesh
+    plate = trimesh.creation.box(extents=[40, 40, 3])
+    hole = trimesh.creation.cylinder(radius=5, height=10, sections=64)
+    mesh = save_mesh(trimesh.boolean.difference([plate, hole], engine="manifold"), tmp_path, "drilled.stl")
+    out = tmp_path / "r.json"
+    assert main(["--mesh", str(mesh), "--min-wall", "1.2", "--out", str(out)]) == 0
+    assert rules(out)["min_wall"]["value"] > 2.9
